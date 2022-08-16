@@ -1,0 +1,15 @@
+name: SimpleBlockPositionChecker
+version: 0.0.1
+description: Useful plugin to check block pos
+main: moqi\blockposdetection\Main
+api: 4.0.0
+author: OwU_MoQi
+
+commands:
+  checkblockpos:
+    description: Check Block Position
+    permission: checkpos.permission
+
+permissions: 
+  checkpos.permission:
+    default: op
