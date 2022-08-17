@@ -3,6 +3,7 @@
 namespace moqi\blockposdetection;
 
 use SOFe\AwaitStd\AwaitStd;
+use SOFe\AwaitGenerator\Await;
 use SOFe\AwaitStd\DisposeException;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
@@ -46,7 +47,7 @@ class Main extends PluginBase{
             $this->checking[$id] = true;
 
             $sender->sendMessage("§6Break a block to check the pos");
-            yield from $this->std->awaitEvent(
+            $event = yield from $this->std->awaitEvent(
                 BlockBreakEvent::class,
                 fn(BlockBreakEvent $event) : bool => $event->getPlayer() === $sender,
                 false,
@@ -57,7 +58,7 @@ class Main extends PluginBase{
             $event->cancel();
             $block = $event->getBlock();
 
-            $player->sendMessage("§b{$block->getName()}'s Pos:  X: §6{$block->getPosition()->getX()}  §bY: §6{$block->getPosition()->getY()}  §bZ: §6{$block->getPosition()->getZ()}");
+            $sender->sendMessage("§b{$block->getName()}'s Pos:  X: §6{$block->getPosition()->getX()}  §bY: §6{$block->getPosition()->getY()}  §bZ: §6{$block->getPosition()->getZ()}");
             unset($this->checking[$id]);
         }, null, [DisposeException::class => static function () : void {}]);
 
