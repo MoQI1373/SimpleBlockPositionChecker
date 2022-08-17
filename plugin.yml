@@ -9,6 +9,7 @@ commands:
   checkblockpos:
     description: Check Block Position
     permission: checkpos.permission
+    permission-message: §cYou dont have permission to use this command!
 
 permissions: 
   checkpos.permission:
