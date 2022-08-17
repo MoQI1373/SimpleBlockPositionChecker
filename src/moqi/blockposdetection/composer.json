@@ -1,0 +1,25 @@
+{
+   "name": "moqi1373/simpleblockpositionchecker",
+   "type": "library",
+   "require": {
+      "pocketmine/pocketmine-mp": "4.0.0",
+      "sof3/await-std": "dev-master",
+      "sof3/await-generator": "^3.4"
+   },
+   "require-dev": {
+      "phpunit/phpunit": "^9.5",
+      "phpstan/phpstan": "1.4.6",
+      "phpstan/phpstan-strict-rules": "^1.0",
+      "phpstan/extension-installer": "^1.0"
+   },
+   "autoload": {
+      "psr-0": {
+         "moqi\\blockposdetection": "src"
+      }
+   },
+   "config": {
+      "allow-plugins": {
+         "phpstan/extension-installer": true
+      }
+   }
+}
